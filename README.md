@@ -88,7 +88,7 @@ Note: No entry will be written if there are no cards to summarise.
 Log level can be adjusted with `-l [debug,info,warn,error,fatal]` (defaults to **warn**).
 
 ### Dry-run
-Dry-run (read-only, don't write comment or archive cards) can be enabled with `-d`. Note: you'll probably want to increase the log level with `-l` for this to be useful.
+Dry-run (read-only, don't write comment or archive cards) can be enabled with `-d`. Note: you'll probably want to increase the log level with `-l` for this to be useful. 
 
 ### Exit codes
 | Code | Meaning |
