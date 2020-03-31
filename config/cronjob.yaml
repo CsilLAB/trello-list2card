@@ -3,7 +3,8 @@ kind: CronJob
 metadata:
   name: weeklyreview
 spec:
-  schedule: "0 0 9 * 6"
+  # Run every Sunday 8am
+  schedule: "0 8 * * Sun"
   jobTemplate:
     spec:
       template:
@@ -11,7 +12,7 @@ spec:
           restartPolicy: Never
           containers:
           - name: list2card
-            image: bessenyeicsilla/trello-list2card:latest
+            image: bessenyeicsilla/trello-list2card:0.1.2
             volumeMounts:
             - name: credentials
               mountPath: "/src/etc"
