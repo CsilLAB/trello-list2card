@@ -17,5 +17,4 @@ CMD sleep 1
 FROM ruby:2.5-alpine
 WORKDIR /src
 COPY --from=build /usr/local/bundle/ /usr/local/bundle/
-RUN gem install trello-list2card-0.1.2.gem
 CMD list2card -c etc/config.toml
