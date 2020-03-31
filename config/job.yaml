@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: reviewnow
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: list2card
+        image: bessenyeicsilla/trello-list2card:0.1.2
+        volumeMounts:
+        - name: credentials
+          mountPath: "/src/etc"
+          readOnly: true
+      volumes:
+      - name: credentials
+        secret:
+          secretName: test
