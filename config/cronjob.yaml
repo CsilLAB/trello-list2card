@@ -12,7 +12,7 @@ spec:
           restartPolicy: Never
           containers:
           - name: list2card
-            image: bessenyeicsilla/trello-list2card:0.1.2
+            image: bessenyeicsilla/trello-list2card
             volumeMounts:
             - name: credentials
               mountPath: "/src/etc"

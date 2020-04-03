@@ -1,0 +1,29 @@
+apiVersion: skaffold/v2alpha1
+kind: Config
+metadata:
+  name: trello-list-card
+build:
+  artifacts:
+    - image: bessenyeicsilla/trello-list2card
+deploy:
+  kubectl:
+    manifests:
+      - config/cronjob.yaml
+
+profiles:
+  - name: csikoste
+    build:
+      cluster:
+        dockerConfig:
+          secretName: docker-registry-kanikosecret
+    deploy:
+      kustomize: {}
+    patches:
+      - op: replace
+        path: /build/artifacts/0
+        value:
+          image: docker-registry.csikoste.com/trello-list2card-arm
+          kaniko:
+            image: matefarkas/kaniko-executor:v0.19.0-arm
+            buildArgs:
+              RUBY_VERSION: 2.5-alpine@sha256:626c4372202901ba870afcd86b0b5ca9fa18911caf40025378ede45ce1c6bdbc

@@ -1,0 +1,6 @@
+resources:
+  - config/cronjob.yaml
+
+images:
+  - name: bessenyeicsilla/trello-list2card
+    newName: docker-registry.csikoste.com/trello-list2card-arm
